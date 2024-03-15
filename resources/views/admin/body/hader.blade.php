@@ -19,65 +19,9 @@
                     <i class="flag-icon flag-icon-us mt-1" title="us"></i> <span
                         class="ms-1 me-1 d-none d-md-inline-block">English</span>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="languageDropdown">
-                    <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-us"
-                            title="us" id="us"></i> <span class="ms-1"> English </span></a>
-                    <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-fr"
-                            title="fr" id="fr"></i> <span class="ms-1"> French </span></a>
-                    <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-de"
-                            title="de" id="de"></i> <span class="ms-1"> German </span></a>
-                    <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-pt"
-                            title="pt" id="pt"></i> <span class="ms-1"> Portuguese
-                        </span></a>
-                    <a href="javascript:;" class="dropdown-item py-2"><i class="flag-icon flag-icon-es"
-                            title="es" id="es"></i> <span class="ms-1"> Spanish </span></a>
-                </div>
+                
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="appsDropdown" role="button"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i data-feather="grid"></i>
-                </a>
-                <div class="dropdown-menu p-0" aria-labelledby="appsDropdown">
-                    <div class="px-3 py-2 d-flex align-items-center justify-content-between border-bottom">
-                        <p class="mb-0 fw-bold">Web Apps</p>
-                        <a href="javascript:;" class="text-muted">Edit</a>
-                    </div>
-                    <div class="row g-0 p-1">
-                        <div class="col-3 text-center">
-                            <a href="pages/apps/chat.html"
-                                class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
-                                    data-feather="message-square" class="icon-lg mb-1"></i>
-                                <p class="tx-12">Chat</p>
-                            </a>
-                        </div>
-                        <div class="col-3 text-center">
-                            <a href="pages/apps/calendar.html"
-                                class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
-                                    data-feather="calendar" class="icon-lg mb-1"></i>
-                                <p class="tx-12">Calendar</p>
-                            </a>
-                        </div>
-                        <div class="col-3 text-center">
-                            <a href="pages/email/inbox.html"
-                                class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
-                                    data-feather="mail" class="icon-lg mb-1"></i>
-                                <p class="tx-12">Email</p>
-                            </a>
-                        </div>
-                        <div class="col-3 text-center">
-                            <a href="pages/general/profile.html"
-                                class="dropdown-item d-flex flex-column align-items-center justify-content-center wd-70 ht-70"><i
-                                    data-feather="instagram" class="icon-lg mb-1"></i>
-                                <p class="tx-12">Profile</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
-                        <a href="javascript:;">View all</a>
-                    </div>
-                </div>
-            </li>
+            
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -250,7 +194,7 @@
                     </div>
                     <ul class="list-unstyled p-1">
                         <li class="dropdown-item py-2">
-                            <a href="pages/general/profile.html" class="text-body ms-0">
+                            <a href="{{ route('admin.profile') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="user"></i>
                                 <span>Profile</span>
                             </a>
@@ -268,7 +212,7 @@
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
-                            <a href="javascript:;" class="text-body ms-0">
+                            <a href="{{ route('admin.logout') }}" class="text-body ms-0">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
                                 <span>Log Out</span>
                             </a>
