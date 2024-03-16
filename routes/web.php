@@ -38,7 +38,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     //admin.profile
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
-    // Route::post('/admin/profile/update', [AdminController::class, 'AdminProfileUpdate'])->name('admin.profile.update');
+    Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
+    //admin.change.password
+    Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+    Route::post('/update/change/password', [AdminController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
 });
 
 // agent dashboard route

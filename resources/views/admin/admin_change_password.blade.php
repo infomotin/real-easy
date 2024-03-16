@@ -1,7 +1,6 @@
-
 @extends('admin.admin_dashboard')
 @section('admin')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <div class="page-content">
 
@@ -16,8 +15,8 @@
                             class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
                             <div>
                                 <img class="wd-80 rounded-circle"
-                                src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('/upload/no_image.jpg') }}"
-                                alt="profile">
+                                    src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('/upload/no_image.jpg') }}"
+                                    alt="profile">
                                 <span class="h4 ms-3 text-dark">Amiah Burton</span>
                             </div>
                             <div class="d-none d-md-block">
@@ -99,10 +98,10 @@
                 <div class="row">
                     <div class="col-md-12 grid-margin">
                         <div class="card">
-                            <div class="card-body" >
+                            <div class="card-body">
                                 {{-- @csrf --}}
-                                <h6 class="card-title">User Form</h6>
-                                <form class="forms-sample" method = "POST" action ={{ route('admin.profile.store') }} enctype="multipart/form-data">
+                                <h6 class="card-title">change Passwor </h6>
+                                <form class="forms-sample" method = "POST" action={{ route('update.change.password') }}>
                                     @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputUsername1" class="form-label">Name</label>
@@ -110,32 +109,38 @@
                                             autocomplete="off" value="{{ $adminData->name }}">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" id="email" name="email"
-                                            value="{{ $adminData->email }}">
+                                        <label for="email" class="form-label">Old Password</label>
+                                        <input type="password"
+                                            class="form-control @error('old_password') is-invalid @enderror" id="old_password"
+                                            name="old_password">
+                                        @error('old_password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" class="form-control" id="phone" name="phone"
-                                            value="{{ $adminData->phone }}">
+                                        <label for="phone" class="form-label">New Password</label>
+                                        <input type="password"
+                                            class="form-control @error('new_password') is-invalid @enderror" id="new_password"
+                                            name="new_password">
+                                        @error('new_password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                     <div class="mb-3">
-                                        <label for="phone" class="form-label">Address </label>
-                                        <input type="text" class="form-control" id="address" name="address"
-                                            value="{{ $adminData->address }}">
+                                        <label for="phone" class="form-label">Confirm Password </label>
+                                        <input type="password"
+                                            class="form-control @error('confirm_password') is-invalid @enderror"
+                                            id="confirm_password" name="confirm_password">
+                                        @error('confirm_password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+
+
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="file" class="form-label">Photo </label>
-                                        <input type="file" class="form-control" id="image" name="photo">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="file" class="form-label"></label>
-                                        <img class="wd-80 rounded-circle" id="showImage"
-                                        src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('/upload/no_image.jpg') }}"
-                                        alt="User">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+
+                                    <button type="submit" class="btn btn-primary me-2">Change Password</button>
                                     <button class="btn btn-secondary">Cancel</button>
                                 </form>
 
@@ -152,16 +157,44 @@
     </div>
 
 
- <script type="text/javascript">
 
-    $(document).ready(function(){
-        $('#image').change(function(e){
-            var reader = new FileReader();
-            reader.onload = function(e){
-                $('#showImage').attr('src',e.target.result);
+    {{-- <script>
+    $(document).ready(function () {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
-            reader.readAsDataURL(e.target.files['0']);
         });
+        $('#change_password').on('submit', function (e) {
+            e.preventDefault();
+            const myForm = document.getElementById('change_password');
+            const formData = new FormData(myForm);
+            $.ajax({
+                type: "post",
+                url: "{{ route('update.password') }}",
+                data: formData,
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                success: function (data) {
+
+                    if (data.status == 200) {
+                        $('#change_password')[0].reset();
+                        alert(data.message);
+
+                    } else if (data.status == 400) {
+                        alert(data.message);
+
+                    }
+
+                }
+
+            });
+
+        });
+
     });
-</script>
+
+</script> --}}
 @endsection

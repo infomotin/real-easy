@@ -186,9 +186,6 @@
             </div>
         </div>
     </div> <!-- row -->
-
-    
-
     <div class="row">
         <div class="col-lg-12 col-xl-12 grid-margin stretch-card">
             <div class="card">
