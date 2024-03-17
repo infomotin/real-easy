@@ -99,8 +99,8 @@
                     <div class="col-md-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                {{-- @csrf --}}
-                                <h6 class="card-title">change Passwor </h6>
+
+                                <h6 class="card-title">Change Passwor </h6>
                                 <form class="forms-sample" method = "POST" action={{ route('update.change.password') }}>
                                     @csrf
                                     <div class="mb-3">
@@ -111,8 +111,8 @@
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Old Password</label>
                                         <input type="password"
-                                            class="form-control @error('old_password') is-invalid @enderror" id="old_password"
-                                            name="old_password">
+                                            class="form-control @error('old_password') is-invalid @enderror"
+                                            id="old_password" name="old_password">
                                         @error('old_password')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -120,23 +120,18 @@
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">New Password</label>
                                         <input type="password"
-                                            class="form-control @error('new_password') is-invalid @enderror" id="new_password"
-                                            name="new_password">
+                                            class="form-control @error('new_password') is-invalid @enderror"
+                                            id="new_password" name="new_password">
                                         @error('new_password')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
-
                                     </div>
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Confirm Password </label>
                                         <input type="password"
-                                            class="form-control @error('confirm_password') is-invalid @enderror"
-                                            id="confirm_password" name="confirm_password">
-                                        @error('confirm_password')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-
-
+                                            class="form-control"
+                                            id="new_password_confirmation" name="new_password_confirmation">
+                                        
                                     </div>
 
 
