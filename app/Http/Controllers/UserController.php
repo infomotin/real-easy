@@ -9,6 +9,6 @@ class UserController extends Controller
 
     public function Index()
     {
-        return view('forntend.frontend_dashboard');
+        return view('forntend.index');
     }
 }

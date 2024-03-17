@@ -1,4 +1,4 @@
-<section class="banner-section" style="background-image: url(assets/images/banner/banner-1.jpg);">
+<section class="banner-section" style="background-image: url(Frontend/assets/images/banner/banner-1.jpg);">
     <div class="auto-container">
         <div class="inner-container">
             <div class="content-box centred">
