@@ -1,11 +1,6 @@
 @extends('forntend.frontend_dashboard')
 @section('main_content')
-    {{-- get login user data  --}}
-    @php
-        $id = Auth::user()->id;
-        $userData = App\Models\User::find($id);
-    @endphp
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--Page Title-->
     <section class="page-title centred"
         style="background-image: url({{ asset('Frontend/assets/images/background/page-title-5.jpg') }});">
@@ -20,8 +15,6 @@
         </div>
     </section>
     <!--End Page Title-->
-
-
     <!-- sidebar-page-container -->
     <section class="sidebar-page-container blog-details sec-pad-2">
         <div class="auto-container">
@@ -35,13 +28,13 @@
                             <div class="post-inner">
                                 <div class="post">
                                     <figure class="post-thumb"><a href="blog-details.html">
-                                            <img class="wd-100 rounded-circle"
+                                            <img class="wd-40 rounded-circle" id="Image"
                                                 src="{{ !empty($userData->photo) ? url('upload/user_images/' . $userData->photo) : url('/upload/no_image.jpg') }}"
-                                                alt="User">
-
-                                        </a></figure>
-                                    <h5><a href="blog-details.html">{{ $userData->name }} </a></h5>
-                                    <p>{{ $userData->email }} </p>
+                                                alt="User"></a></figure>
+                                    <h5><a
+                                            href="blog-details.html">{{ $userData->first_name . ' ' . $userData->least_name }}</a>
+                                    </h5>
+                                    <p>{{ $userData->email }}</p>
                                 </div>
                             </div>
                         </div>
@@ -52,62 +45,54 @@
                     <div class="blog-details-content">
                         <div class="news-block-one">
                             <div class="inner-box">
-
                                 <div class="lower-content">
-                                    <h3>Real-Easy Buy/Reant System.</h3>
+                                    <h3> Buy or sell</h3>
                                     <ul class="post-info clearfix">
                                         <li class="author-box">
-                                            <figure class="author-thumb"><img class="wd-30 rounded-circle"
+                                            <figure class="author-thumb"><img class="wd-30 rounded-circle" id="Image"
                                                     src="{{ !empty($userData->photo) ? url('upload/user_images/' . $userData->photo) : url('/upload/no_image.jpg') }}"
                                                     alt="User"></figure>
-                                            <h5><a href="blog-details.html">Eva Green</a></h5>
+                                            <h5><a
+                                                    href="blog-details.html">{{ $userData->first_name . ' ' . $userData->least_name }}</a>
+                                            </h5>
                                         </li>
                                         <li>April 10, 2020</li>
                                     </ul>
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="card-body" style="background-color: #1baf65;">
-                                                <h1 class="card-title" style="color: white; font-weight: bold;">0
-                                                </h1>
-                                                <h5 class="card-text" style="color: white;"> Approved properties
-                                                </h5>
-
-                                            </div>
+                                    <form action="{{ route('user.password.update') }}" method="post" class="default-form">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="exampleInputUsername1" class="form-label">User Name</label>
+                                            <input type="text" class="form-control" id="username" name="username"
+                                                autocomplete="off" value="{{ $userData->username }}" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Old Password</label>
+                                            <input type="password"
+                                                class="form-control @error('old_password') is-invalid @enderror"
+                                                id="old_password" name="old_password">
+                                            @error('old_password')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="card-body" style="background-color: #ffc107;">
-                                                <h1 class="card-title" style="color: white; font-weight: bold; ">0
-                                                </h1>
-                                                <h5 class="card-text" style="color: white;"> Pending approve
-                                                    properties</h5>
-
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="new_password" class="form-label">New Password</label>
+                                            <input type="password"
+                                                class="form-control @error('new_password') is-invalid @enderror"
+                                                id="new_password" name="new_password">
+                                            @error('new_password')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
-
-
-                                        <div class="col-md-4">
-                                            <div class="card-body" style="background-color: #002758;">
-                                                <h1 class="card-title" style="color: white; font-weight: bold;">0
-                                                </h1>
-                                                <h5 class="card-text" style="color: white; "> Rejected properties
-                                                </h5>
-
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="phone" class="form-label">Confirm Password </label>
+                                            <input type="password" class="form-control" id="new_password_confirmation"
+                                                name="new_password_confirmation">
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="blog-details-content">
-                        <div class="news-block-one">
-                            <div class="inner-box">
-
-                                <div class="lower-content">
-                                    <h3>Activity Logs</h3>
-                                    <hr>
+                                        <div class="form-group message-btn">
+                                            <button type="submit" class="theme-btn btn-one">Save Changes </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -117,11 +102,9 @@
         </div>
     </section>
     <!-- sidebar-page-container -->
-
     <!-- subscribe-section -->
     <section class="subscribe-section bg-color-3">
-        <div class="pattern-layer" style="background-image: url({{ asset('Frontend/assets/images/shape/shape-2.png') }});">
-        </div>
+        <div class="pattern-layer" style="background-image: url({{ asset('Frontend/assets/images/shape/shape-2.png') }});"></div>
         <div class="auto-container">
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-sm-12 text-column">
@@ -144,4 +127,5 @@
         </div>
     </section>
     <!-- subscribe-section end -->
-@endSection
+    
+@endsection
