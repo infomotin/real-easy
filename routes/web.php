@@ -4,8 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
-use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\UserController; 
+use App\Http\Controllers\Backend\PropertyTypeContorller;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -40,8 +40,20 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     //admin.change.password
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/update/change/password', [AdminController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
+    
 });
 
+// admin dashboard route PropertyTypeContorller
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::controller(PropertyTypeContorller::class)->group(function () {
+        Route::get('/admin/property-type/index', 'PropertyTypeIndex')->name('admin.property-type.index');
+        Route::get('/admin/property-type/add', 'PropertyTypeAdd')->name('admin.property-type.add');
+        Route::post('/admin/property-type/store', 'PropertyTypeStore')->name('admin.property-type.store');
+        Route::get('/admin/property-type/edit/{id}', 'PropertyTypeEdit')->name('propertytype.edit');
+        Route::post('/admin/property-type/update/{id}', 'PropertyTypeUpdate')->name('admin.property-type.update');
+        Route::get('/admin/property-type/delete/{id}', 'PropertyTypeDelete')->name('propertytype.destroy');
+    });
+});
 // agent dashboard route
 Route::middleware(['auth', 'role:agent'])->group(function () {
     Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
