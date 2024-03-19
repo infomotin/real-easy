@@ -24,6 +24,7 @@
                 <div class="sign-box">
                     {{-- //if user is logged in show logout --}}
                     @if($user)
+                    <a href="{{ route('dashboard') }}"><i class="fas fa-user"></i>Dashboard </a>
                     <a href="{{ route('user.logout') }}"><i class="fas fa-user"></i>Logout </a>
                     @else
                     <a href="{{ route('login') }}"><i class="fas fa-user"></i>Sign Up</a>

@@ -9,6 +9,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Carbon\Carbon;
+
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,13 +31,23 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        //get auth user
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->last_login = Carbon::now();
+        $data->save();
+
+        $notification = array(
+            'message' => 'User: '.Auth::user()->username.' Login Successfully!',
+            'alert-type' => 'info'
+        );
 
         if (Auth::user()->role === 'admin') {
-            return redirect()->intended(RouteServiceProvider::ADMIN);
+            return redirect()->intended(RouteServiceProvider::ADMIN)->with($notification);
         }elseif (Auth::user()->role ==='agent') {
-            return redirect()->intended(RouteServiceProvider::AGENT);
+            return redirect()->intended(RouteServiceProvider::AGENT)->with($notification);
         }else{
-            return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(RouteServiceProvider::HOME)->with($notification);
         }
 
         // return redirect()->intended(RouteServiceProvider::HOME);
