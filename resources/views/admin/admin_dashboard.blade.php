@@ -30,13 +30,13 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <!-- endinject -->
-    	<!-- Plugin css for this page -->
-  <link rel="stylesheet" href="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css') }}">
-  <!-- End plugin css for this page -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css')}}">
+    <!-- End plugin css for this page -->
+
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/demo2/style.css') }}">
     <!-- End layout styles -->
-
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
 </head>
 
@@ -72,19 +72,18 @@
     <script src="{{  asset('backend/assets/js/data-table.js') }}"></script>
 	<!-- End custom js for this page -->
     <!-- Custom js for this page -->
-  <script src="{{ asset('baclkend/assets/js/data-table.js')}}"></script>
-  <!-- End custom js for this page -->
-    <!-- Plugin js for this page -->
-  <script src="{{ asset('baclkend/assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
-  <script src="{{ asset('baclkend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
-	<!-- End plugin js for this page -->
-
-
-    <!-- Custom js for this page -->
     <script src="{{ asset('backend/assets/js/dashboard-dark.js') }}"></script>
     <!-- End custom js for this page -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >  
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    	<!-- Plugin js for this page -->
+  <script src="{{ asset('backend/assets/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+  <script src="{{ asset('backend/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
+	<!-- End plugin js for this page -->
+  <!-- Custom js for this page -->
+  <script src="{{ asset('backend/assets/js/data-table.js')}}"></script>
+	<!-- End custom js for this page -->
 
 <script>
  @if(Session::has('message'))

@@ -49,9 +49,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/property-type/index', 'PropertyTypeIndex')->name('admin.property-type.index');
         Route::get('/admin/property-type/add', 'PropertyTypeAdd')->name('admin.property-type.add');
         Route::post('/admin/property-type/store', 'PropertyTypeStore')->name('admin.property-type.store');
-        Route::get('/admin/property-type/edit/{id}', 'PropertyTypeEdit')->name('propertytype.edit');
-        Route::post('/admin/property-type/update/{id}', 'PropertyTypeUpdate')->name('admin.property-type.update');
-        Route::get('/admin/property-type/delete/{id}', 'PropertyTypeDelete')->name('propertytype.destroy');
+        Route::get('/admin/property-type/edit/{id}', 'PropertyTypeEdit')->name('admin.property-type.edit');
+        Route::post('/admin/property-type/update/', 'PropertyTypeUpdate')->name('admin.property-type.update');
+        Route::get('/admin/property-type/delete/{id}', 'PropertyTypeDelete')->name('admin.property-type.delete');
     });
 });
 // agent dashboard route
