@@ -21,8 +21,8 @@
             </li>
             <li class="nav-item nav-category">RealEstate</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="{{ route('admin.property-type.index') }}" role="button"
-                    aria-expanded="false" aria-controls="emails">
+                <a class="nav-link" data-bs-toggle="collapse" href="{{ route('admin.property-type.index') }}"
+                    role="button" aria-expanded="false" aria-controls="emails">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Property Type</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -41,11 +41,11 @@
                     </ul>
                 </div>
             </li>
-            
+
             <li class="nav-item nav-category">Components</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button"
-                    aria-expanded="false" aria-controls="uiComponents">
+                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
                     <i class="link-icon" data-feather="feather"></i>
                     <span class="link-title">UI Kit</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -58,14 +58,36 @@
                         <li class="nav-item">
                             <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
                         </li>
-                        
+
                     </ul>
                 </div>
-            
-            <li class="nav-item nav-category">Pages</li>
+            </li>
+            <li class="nav-item nav-category">Amenitie</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button"
-                    aria-expanded="false" aria-controls="general-pages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#amenitie" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="feather"></i>
+                    <span class="link-title">Amenitie</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="amenitie">
+                    <ul class="nav sub-menu"> 
+                        <li class="nav-item">
+                            <a href="{{ route('admin.amenitie-type.index') }}" class="nav-link">ALL Amenitie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Add Amenitie</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item nav-category">Pages</li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false"
+                    aria-controls="general-pages">
                     <i class="link-icon" data-feather="book"></i>
                     <span class="link-title">Special pages</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -94,8 +116,8 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
-                    aria-expanded="false" aria-controls="authPages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button" aria-expanded="false"
+                    aria-controls="authPages">
                     <i class="link-icon" data-feather="unlock"></i>
                     <span class="link-title">Authentication</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -131,8 +153,7 @@
             </li>
             <li class="nav-item nav-category">Docs</li>
             <li class="nav-item">
-                <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank"
-                    class="nav-link">
+                <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
                     <i class="link-icon" data-feather="hash"></i>
                     <span class="link-title">Documentation</span>
                 </a>

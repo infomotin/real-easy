@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\Backend\PropertyTypeContorller;
+use App\Http\Controllers\Backend\AmenitieContorller;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -52,6 +53,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/property-type/edit/{id}', 'PropertyTypeEdit')->name('admin.property-type.edit');
         Route::post('/admin/property-type/update/', 'PropertyTypeUpdate')->name('admin.property-type.update');
         Route::get('/admin/property-type/delete/{id}', 'PropertyTypeDelete')->name('admin.property-type.delete');
+    });
+
+    //Amenity
+    Route::controller(AmenitieContorller::class)->group(function () {
+        Route::get('/admin/amenity/index', 'AmenityIndex')->name('admin.amenitie-type.index');
+
     });
 });
 // agent dashboard route

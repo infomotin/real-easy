@@ -67,7 +67,7 @@
     <script src="{{ asset('backend/assets/vendors/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/template.js') }}"></script>
     <!-- endinject -->
-
+    
 	<!-- Custom js for this page -->
     <script src="{{  asset('backend/assets/js/data-table.js') }}"></script>
 	<!-- End custom js for this page -->
@@ -105,8 +105,12 @@
     toastr.error(" {{ Session::get('message') }} ");
     break; 
  }
- @endif 
+ @endif     
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ <script src="{{ asset('backend/assets/js/code/code.js') }}"></script>
+ <script src="{{ asset('backend/assets/js/code/sweetAlert.js') }}"></script>
 </script>
 </body>
 
 </html>
+ 
