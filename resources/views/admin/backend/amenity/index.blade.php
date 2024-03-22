@@ -4,7 +4,7 @@
 
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
-                <a href="{{ route('admin.property-type.add') }}" class="btn btn-info">Add New</a>
+                <a href="{{ route('admin.amenitie-type.add') }}" class="btn btn-info">Add New</a>
             </ol>
         </nav>
 
@@ -33,9 +33,9 @@
                                             <td>{{ $propertytype->amenities_name }}</td>
 
                                             <td>
-                                                <a href="{{ route('admin.property-type.edit', $propertytype->id) }}"
+                                                <a href="{{ route('admin.amenitie-type.edit', $propertytype->id) }}"
                                                     class="btn btn-info">Edit</a>
-                                                <a href="{{ route('admin.property-type.delete', $propertytype->id) }}"
+                                                <a href="{{ route('admin.amenitie-type.delete', $propertytype->id) }}"
                                                     class="btn btn-danger" id="delete">Delete</a>
                                             </td>
                                             <td>

@@ -58,6 +58,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     //Amenity
     Route::controller(AmenitieContorller::class)->group(function () {
         Route::get('/admin/amenity/index', 'AmenityIndex')->name('admin.amenitie-type.index');
+        Route::get('/admin/amenity/add', 'AmenityAdd')->name('admin.amenitie-type.add');
+        Route::post('/admin/amenity/store', 'AmenityStore')->name('admin.amenitie-type.store');
+        Route::get('/admin/amenity/edit/{id}', 'AmenityEdit')->name('admin.amenitie-type.edit');
+        Route::post('/admin/amenity/update/', 'AmenityUpdate')->name('admin.amenitie-type.update');
+        Route::get('/admin/amenity/delete/{id}', 'AmenityDelete')->name('admin.amenitie-type.delete');
 
     });
 });
