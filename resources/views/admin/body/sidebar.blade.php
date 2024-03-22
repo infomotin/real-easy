@@ -83,6 +83,29 @@
                 </div>
             </li>
 
+            <li class="nav-item nav-category">Property</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#property" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="feather"></i>
+                    <span class="link-title">Property</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="property">
+                    <ul class="nav sub-menu"> 
+                        <li class="nav-item">
+                            <a href="{{ route('admin.property.index') }}" class="nav-link">ALL Property</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Add Property</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
+            
+
+
             <li class="nav-item nav-category">Pages</li>
 
             <li class="nav-item">

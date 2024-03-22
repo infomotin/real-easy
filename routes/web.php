@@ -7,6 +7,7 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\Backend\PropertyTypeContorller;
 use App\Http\Controllers\Backend\AmenitieContorller;
+use App\Http\Controllers\Backend\PropertyController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -64,6 +65,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/admin/amenity/update/', 'AmenityUpdate')->name('admin.amenitie-type.update');
         Route::get('/admin/amenity/delete/{id}', 'AmenityDelete')->name('admin.amenitie-type.delete');
 
+    });
+    //Property
+    Route::controller(PropertyController::class)->group(function () {
+        Route::get('/admin/property/index', 'PropertyIndex')->name('admin.property.index');
+        Route::get('/admin/property/add', 'PropertyAdd')->name('admin.property.add');
+        Route::post('/admin/property/store', 'PropertyStore')->name('admin.property.store');
+        Route::get('/admin/property/edit/{id}', 'PropertyEdit')->name('admin.property.edit');
+        Route::post('/admin/property/update/', 'PropertyUpdate')->name('admin.property.update');
+        Route::get('/admin/property/delete/{id}', 'PropertyDelete')->name('admin.property.delete');
     });
 });
 // agent dashboard route
