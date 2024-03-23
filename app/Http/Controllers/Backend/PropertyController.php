@@ -32,6 +32,7 @@ class PropertyController extends Controller
         $facilities = Facility::all();
         $propertytypes = PropertyType::all();
         $amenities = Amenities::all();
+        // dd($amenities);
         $agent = User::where('role','status')->where('status','active')->get();
         return view('admin.backend.property.add',compact('facilities','propertytypes','amenities','agent'));
     }

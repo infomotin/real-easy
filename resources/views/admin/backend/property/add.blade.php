@@ -187,23 +187,22 @@
                                     </div><!-- Col -->
                                     <div class="col-sm-4">
                                         <div class="mb-3">
-                                            <label class="form-label">Amenities</label>
-                                            <select name="amenities_id" id="amenities_id" class="form-select">
-                                                <option selected="" disabled="">Select Amenities</option>
-                                                @foreach($amenities as $key => $propertytype)
-                                                <option value="{{ $propertytype->id }}">{{ $propertytype->amenities_name }}</option>
+                                            <label class="form-label">amenities</label>
+                                            <select name="amenities[]" id="amenities" class="js-example-basic-multiple form-select" multiple="multiple" data-width="100%">
+                                                @foreach($amenities as $amenitie)
+                                                <option value="{{ $amenitie->id }}" >{{ $amenitie->amenities_name }}</option>
                                                 @endforeach
-
                                             </select>
+                                        </div>
                                     </div>
-                                    </div><!-- Col -->
+                                    <!-- Col -->
                                     <div class="col-sm-4">
                                         <div class="mb-3">
                                             <label class="form-label">Agent</label>
                                             <select name="agent_id" id="agent_id" class="form-select">
-                                                <option selected="" disabled="">Agent</option>
-                                                @foreach($agent as $key => $propertytype)
-                                                <option value="{{ $propertytype->id }}">{{ $propertytype->name}}</option>
+                                                <option selected="" disabled="">Select Property Type</option>
+                                                @foreach($agent as $key => $a)
+                                                <option value="{{ $a->id }}">{{ $a->name  }}</option>
                                                 @endforeach
 
                                             </select>
