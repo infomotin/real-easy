@@ -115,6 +115,7 @@
     <script src="{{ asset('backend/assets/js/code/sweetAlert.js') }}"></script>
     <script src="{{ asset('backend/assets/js/code/validate.min.js') }}"></script>
     <script src="{{ asset('backend/assets/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
+    <script src="{{ asset('backend/assets/vendors/tinymce/tinymce.min.js') }}"></script>
 	<script src="{{ asset('backend/assets/vendors/select2/select2.min.js') }}"></script>
 	<script src="{{ asset('backend/assets/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
     <script src="{{ asset('backend/assets/js/form-validation.js') }}"></script>
@@ -127,6 +128,7 @@
     <script src="{{ asset('backend/assets/js/dropify.js') }}"></script>
     <script src="{{ asset('backend/assets/js/pickr.js') }}"></script>
     <script src="{{ asset('backend/assets/js/flatpickr.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/tinymce.js') }}"></script>
 
     </script>
 </body>
