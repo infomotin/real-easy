@@ -15,13 +15,13 @@ class PropertyTypeContorller extends Controller
     {   
         //send data to view propertytype.index view
         $propertytypes = PropertyType::all();
-        return view('admin.backend.propertytype.index',compact('propertytypes'));
+        return view('backend.propertytype.index',compact('propertytypes'));
     }
     //PropertyTypeAdd
 
     public function PropertyTypeAdd()
     {
-        return view('admin.backend.propertytype.add');
+        return view('backend.propertytype.add');
     }
     //PropertyTypeStore
 
@@ -54,7 +54,7 @@ class PropertyTypeContorller extends Controller
         //send data to view
         // dd($id);
         $propertytype = PropertyType::find($id);
-        return view('admin.backend.propertytype.edit',compact('propertytype'));
+        return view('backend.propertytype.edit',compact('propertytype'));
     }
     //PropertyTypeUpdate
 

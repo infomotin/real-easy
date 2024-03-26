@@ -13,13 +13,13 @@ class AmenitieContorller extends Controller
     public function AmenityIndex()
     {
         $allAmenitie = Amenities::all();
-        return view('admin.backend.amenity.index',compact('allAmenitie'));
+        return view('backend.amenity.index',compact('allAmenitie'));
     }
     // AmenityAdd
 
     public function AmenityAdd()
     {
-        return view('admin.backend.amenity.add');
+        return view('backend.amenity.add');
     }
     //AmenityStore
 
@@ -46,7 +46,7 @@ class AmenitieContorller extends Controller
     public function AmenityEdit($id)
     {
         $amenitie = Amenities::find($id);
-        return view('admin.backend.amenity.edit',compact('amenitie'));
+        return view('backend.amenity.edit',compact('amenitie'));
     }
     //AmenityUpdate
 

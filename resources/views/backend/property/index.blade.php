@@ -24,6 +24,7 @@
                                         <th>P Type</th>
                                         <th>Status Type</th>
                                         <th>City</th>
+                                        <th>Code</th>
                                         <th>Action</th>
                                         <th>Status</th>
                                         
@@ -37,12 +38,13 @@
                                             <img src="{{ asset($propertytype->property_thambnail) }}" style="width: 50px; height: 50px;">
                                         </td>
                                         <td>{{ $propertytype->property_name }}</td>
-                                        <td>{{ $propertytype->ptype_id }}</td>
+                                        <td>{{ $propertytype['propertyType']['type_name'] }}</td>
                                         <td>{{ $propertytype->property_status }}</td>
                                         <td>{{ $propertytype->city	 }}</td>
+                                        <td>{{ $propertytype->property_code	 }}</td>
                                         <td>
-                                            <a href="{{ route('admin.property-type.edit', $propertytype->id) }}" class="btn btn-info">Edit</a>
-                                            <a href="{{ route('admin.property-type.delete', $propertytype->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                            <a href="{{ route('admin.property.edit', $propertytype->id) }}" class="btn btn-info">Edit</a>
+                                            <a href="{{ route('admin.property.delete', $propertytype->id) }}" class="btn btn-danger" id="delete">Delete</a>
                                         </td>
                                         <td>
                                             @if($propertytype->status == 1)
