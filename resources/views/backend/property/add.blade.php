@@ -68,7 +68,8 @@
                                             <img src="" id="mainThmb">
 
                                         </div>
-                                    </div><!-- Col -->
+                                    </div>
+                                    <!-- Col -->
 
 
 

@@ -74,6 +74,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/property/edit/{id}', 'PropertyEdit')->name('admin.property.edit');
         Route::post('/admin/property/update/', 'PropertyUpdate')->name('admin.property.update');
         Route::get('/admin/property/delete/{id}', 'PropertyDelete')->name('admin.property.delete');
+
+        //admin.property.update.thambnail
+        Route::post('/admin/property/update/thambnail/', 'PropertyThambnailUpdate')->name('admin.property.update.thambnail');
+        // admin.property.update.multiimage
+        Route::post('/admin/property/update/multiimage/', 'PropertyMultiImageUpdate')->name('admin.property.update.multiimage');
+        // admin.property.delete.multiimage
+        Route::get('/admin/property/delete/multiimage/{id}', 'PropertyMultiImageDelete')->name('admin.property.delete.multiimage');
+        // admin.property.update.multiimage.new.store
+        Route::post('/admin/property/update/multiimage/new/store/', 'PropertyMultiImageNewStore')->name('admin.property.update.multiimage.new.store');
+        //admin.property.update.facility
+        Route::post('/admin/property/update/facility/', 'PropertyFacilityUpdate')->name('admin.property.update.facility');
     });
 });
 // agent dashboard route
