@@ -8,15 +8,19 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\PropertyTypeContorller;
 use App\Http\Controllers\Backend\AmenitieContorller;
 use App\Http\Controllers\Backend\PropertyController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 //user forntend all route
 Route::get('/', [UserController::class, 'Index'])->name('home');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 Route::middleware('auth')->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -93,10 +97,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/admin/property/active/{id}', 'PropertyActive')->name('admin.property.active');
     });
 });
+
+
 // agent dashboard route
 Route::middleware(['auth', 'role:agent'])->group(function () {
     Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
 });
 
 // admin login route
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login'); 
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class); 
