@@ -27,6 +27,19 @@ class PropertyController extends Controller
         $properties = Property::orderBy('id', 'desc')->get();
         return view('backend.property.index', compact('properties'));
     }
+    //PropertyView
+    public function PropertyView($id){
+        $property = Property::findOrFail($id);
+        $amenities =  $property->amenities_id;
+        $pro_amenity = explode(',', $amenities);
+        $facilities = Facility::where('property_id', $id)->get();
+        $pstate = PropertyType::all();
+        $amenities = Amenities::latest()->get();
+        $mult_images = MultiImage::where('property_id', $id)->get();
+        $activeAgent  = User::where('role', 'agent')->where('status', 'active')->get();
+
+        return view('backend.property.view', compact('property', 'facilities', 'pstate', 'amenities', 'activeAgent', 'pro_amenity', 'mult_images'));
+    }
     //PropertyAdd
     public function PropertyAdd()
     {
@@ -312,5 +325,55 @@ class PropertyController extends Controller
             );
             return redirect()->back()->with($notification);
         }
+    }
+    //PropertyDelete
+    public function PropertyDelete($id)
+    {
+        $property = Property::findOrFail($id);
+        if (file_exists($property->property_thambnail)) {
+            unlink($property->property_thambnail);
+        }
+        Property::findOrFail($id)->delete();
+
+        //multi image delete
+        $multi_image = MultiImage::where('property_id',$id)->get();
+        foreach ($multi_image as $img) {
+            if (file_exists($img->photo_name)) {
+                unlink($img->photo_name);
+            }
+            MultiImage::where('id', $img->id)->delete();
+        }
+       
+       //facility delete
+        $facility = Facility::where('property_id',$id)->delete();
+        foreach ($facility as $value) {
+            $value->facility_name;
+            Facility::where('id', $id)->delete();
+        }
+        $notification = array(
+            'message' => 'Property Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    //PropertyInactive
+    public function PropertyInactive($id)
+    {
+        Property::findOrFail($id)->update(['status' => 0]);
+        $notification = array(
+            'message' => 'Property Inactive Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    //PropertyActive
+    public function PropertyActive($id)
+    {
+        Property::findOrFail($id)->update(['status' => 1]);
+        $notification = array(
+            'message' => 'Property Active Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }

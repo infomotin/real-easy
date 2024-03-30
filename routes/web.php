@@ -74,6 +74,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/property/edit/{id}', 'PropertyEdit')->name('admin.property.edit');
         Route::post('/admin/property/update/', 'PropertyUpdate')->name('admin.property.update');
         Route::get('/admin/property/delete/{id}', 'PropertyDelete')->name('admin.property.delete');
+        //admin.property.view
+        Route::get('/admin/property/view/{id}', 'PropertyView')->name('admin.property.view');
 
         //admin.property.update.thambnail
         Route::post('/admin/property/update/thambnail/', 'PropertyThambnailUpdate')->name('admin.property.update.thambnail');
@@ -85,6 +87,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('/admin/property/update/multiimage/new/store/', 'PropertyMultiImageNewStore')->name('admin.property.update.multiimage.new.store');
         //admin.property.update.facility
         Route::post('/admin/property/update/facility/', 'PropertyFacilityUpdate')->name('admin.property.update.facility');
+        //property.inactive
+        Route::post('/admin/property/inactive/{id}', 'PropertyInactive')->name('admin.property.inactive');
+        //property.active
+        Route::post('/admin/property/active/{id}', 'PropertyActive')->name('admin.property.active');
     });
 });
 // agent dashboard route

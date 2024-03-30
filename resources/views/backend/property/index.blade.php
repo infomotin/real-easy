@@ -43,8 +43,9 @@
                                         <td>{{ $propertytype->city	 }}</td>
                                         <td>{{ $propertytype->property_code	 }}</td>
                                         <td>
-                                            <a href="{{ route('admin.property.edit', $propertytype->id) }}" class="btn btn-info">Edit</a>
-                                            <a href="{{ route('admin.property.delete', $propertytype->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                            <a href="{{ route('admin.property.view', $propertytype->id) }}" class="btn btn-info"><i data-feather="eye"></i></a>
+                                            <a href="{{ route('admin.property.edit', $propertytype->id) }}" class="btn btn-info"><i data-feather="edit"></i></a>
+                                            <a href="{{ route('admin.property.delete', $propertytype->id) }}" class="btn btn-danger" id="delete"><i data-feather="trash-2"></i></a>
                                         </td>
                                         <td>
                                             @if($propertytype->status == 1)
