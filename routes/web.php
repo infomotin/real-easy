@@ -101,8 +101,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 // agent dashboard route
 Route::middleware(['auth', 'role:agent'])->group(function () {
-    Route::get('/agent/dashboard', [AgentController::class, 'AgentDashboard'])->name('agent.dashboard');
+    Route::controller(AgentController::class)->group(function () {
+        Route::get('/agent/dashboard', 'AgentDashboard')->name('agent.dashboard');
+        Route::get('/agent/logout', 'AgentLogout')->name('agent.logout');
+    });
+    
 });
 
 // admin login route
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login')->middleware(RedirectIfAuthenticated::class); 
+//agent login route
+Route::get('/agent/login', [AgentController::class, 'AgentLogin'])->name('agent.login')->middleware(RedirectIfAuthenticated::class);
+// agent.register
+Route::post('/agent/register', [AgentController::class, 'AgentRegister'])->name('agent.register');
