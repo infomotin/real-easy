@@ -19,41 +19,39 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">RealEstate</li>
+
+            <li class="nav-item nav-category">User All Function</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="{{ route('admin.property-type.index') }}"
-                    role="button" aria-expanded="false" aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Property Type</span>
+                <a class="nav-link" data-bs-toggle="collapse" href="#userallfunction" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="feather"></i>
+                    <span class="link-title">User List</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
-                    <ul class="nav sub-menu">
+                <div class="collapse" id="userallfunction">
+                    <ul class="nav sub-menu"> 
                         <li class="nav-item">
-                            <a href="{{ route('admin.property-type.index') }}" class="nav-link">Inbox</a>
+                            <a href="{{ route('admin.user.index') }}" class="nav-link">ALL User</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Read</a>
+                            <a href="#" class="nav-link">Add User</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/email/compose.html" class="nav-link">Compose</a>
-                        </li>
+
                     </ul>
                 </div>
             </li>
-
-            <li class="nav-item nav-category">Components</li>
+            <li class="nav-item nav-category">Propertype </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
                     <i class="link-icon" data-feather="feather"></i>
-                    <span class="link-title">UI Kit</span>
+                    <span class="link-title">Type List</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="uiComponents">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('admin.property-type.index') }}" class="nav-link">Accordion</a>
+                            <a href="{{ route('admin.property-type.index') }}" class="nav-link">Property Type List</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>

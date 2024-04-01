@@ -198,7 +198,7 @@
                         </div>
                         <div class="text-center">
                             <p class="tx-16 fw-bolder">{{ $adminData->name }}</p>
-                            <p class="tx-12 text-muted">{{ $adminData->email }}/p>
+                            <p class="tx-12 text-muted">{{ $adminData->email }}</p>
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">

@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('agent.agent_dashboard')
+@section('agent')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <div class="page-content">
@@ -15,9 +15,9 @@
                             class="d-flex justify-content-between align-items-center position-absolute top-90 w-100 px-2 px-md-4 mt-n4">
                             <div>
                                 <img class="wd-80 rounded-circle"
-                                    src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('/upload/no_image.jpg') }}"
+                                    src="{{ !empty($agent->photo) ? url('upload/agent_images/' . $agent->photo) : url('/upload/no_image.jpg') }}"
                                     alt="profile">
-                                <span class="h4 ms-3 text-dark">Amiah Burton</span>
+                                <span class="h4 ms-3 text-dark">{{ $agent->first_name . ' ' . $agent->last_name }}</span>
                             </div>
                             <div class="d-none d-md-block">
                                 <button class="btn btn-primary btn-icon-text">
@@ -64,9 +64,9 @@
 
                             <div>
                                 <img class="wd-100 rounded-circle"
-                                    src="{{ !empty($adminData->photo) ? url('upload/admin_images/' . $adminData->photo) : url('/upload/no_image.jpg') }}"
+                                    src="{{ !empty($agent->photo) ? url('upload/agent_images/' . $agent->photo) : url('/upload/no_image.jpg') }}"
                                     alt="profile">
-                                <span class="h4 ms-3">{{ $adminData->name }}</span>
+                                <span class="h4 ms-3">{{ $agent->name }}</span>
                             </div>
 
                         </div>
@@ -74,19 +74,19 @@
                             Social.</p>
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Name:</label>
-                            <p class="text-muted">{{ $adminData->name }}</p>
+                            <p class="text-muted">{{ $agent->name }}</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Phone:</label>
-                            <p class="text-muted">{{ $adminData->phone }}</p>
+                            <p class="text-muted">{{ $agent->phone }}</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Email:</label>
-                            <p class="text-muted">{{ $adminData->email }}</p>
+                            <p class="text-muted">{{ $agent->email }}</p>
                         </div>
                         <div class="mt-3">
                             <label class="tx-11 fw-bolder mb-0 text-uppercase">Website:</label>
-                            <p class="text-muted">{{ $adminData->name }}</p>
+                            <p class="text-muted">{{ $agent->name }}</p>
                         </div>
 
                     </div>
@@ -101,12 +101,12 @@
                             <div class="card-body">
 
                                 <h6 class="card-title">Change Passwor </h6>
-                                <form class="forms-sample" method = "POST" action={{ route('update.change.password') }}>
+                                <form class="forms-sample" method = "POST" action={{ route('agent.password.update') }}>
                                     @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputUsername1" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="name" name="name"
-                                            autocomplete="off" value="{{ $adminData->name }}">
+                                            autocomplete="off" value="{{ $agent->name }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Old Password</label>

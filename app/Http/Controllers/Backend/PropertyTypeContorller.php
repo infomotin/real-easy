@@ -9,6 +9,9 @@ use Illuminate\Support\Str;
 
 class PropertyTypeContorller extends Controller
 {
+
+    // UserIndex
+    
     //PropertyTypeIndex
 
     public function PropertyTypeIndex()

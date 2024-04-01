@@ -10,6 +10,23 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+    // UserIndex
+    public function UserIndex(){
+        $users = User::latest()->paginate(20);
+        return view('backend.agentuser.user_index',compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+    //UserStatusChange
+    public function UserStatusChange(Request $request, $id){
+        $findUser = User::find($id);
+        $findUser->status = $request->status;
+        $findUser->save();
+        $notification = array(
+            'message' => 'User Status Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+        
+    }
     public function AdminDashboard(){
         return view('admin.index');
     }

@@ -2,7 +2,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-            Real<span>Easy</span>
+            Agent<span>Easy</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>

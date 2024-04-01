@@ -38,6 +38,10 @@ require __DIR__.'/auth.php';
 
 // admin dashboard route
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    // admin.user.index
+    Route::get('/admin/user/index',[AdminController::class,'UserIndex'] )->name('admin.user.index');
+    // admin.user.status.change
+    Route::post('/admin/user/status/change/{id}',[AdminController::class,'UserStatusChange'] )->name('admin.user.status.change');
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     //admin.profile
@@ -58,6 +62,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin/property-type/edit/{id}', 'PropertyTypeEdit')->name('admin.property-type.edit');
         Route::post('/admin/property-type/update/', 'PropertyTypeUpdate')->name('admin.property-type.update');
         Route::get('/admin/property-type/delete/{id}', 'PropertyTypeDelete')->name('admin.property-type.delete');
+        
+        
     });
 
     //Amenity
@@ -104,6 +110,11 @@ Route::middleware(['auth', 'role:agent'])->group(function () {
     Route::controller(AgentController::class)->group(function () {
         Route::get('/agent/dashboard', 'AgentDashboard')->name('agent.dashboard');
         Route::get('/agent/logout', 'AgentLogout')->name('agent.logout');
+        Route::get('/agent/change/password', 'AgentChangePassword')->name('agent.change.password');
+        Route::post('/agent/password/update', 'AgentPasswordUpdate')->name('agent.password.update');
+        Route::get('/agent/profile', 'AgentProfile')->name('agent.profile');
+        Route::post('/agent/profile/store', 'AgentProfileStore')->name('agent.profile.store');
+
     });
     
 });
