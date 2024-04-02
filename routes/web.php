@@ -53,6 +53,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // delete.agent
     Route::get('/admin/delete/agent/{id}', [AdminController::class, 'DeleteAgent'])->name('agent.delete');
 
+    // url ajax route
+    // /changeStatus
+    Route::get('/changeStatus', [AdminController::class, 'changeStatus']);
+
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     //admin.profile

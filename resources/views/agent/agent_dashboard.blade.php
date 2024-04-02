@@ -130,6 +130,8 @@
     <script src="{{ asset('backend/assets/js/flatpickr.js') }}"></script>
     <script src="{{ asset('backend/assets/js/tinymce.js') }}"></script>
 
+    
+
     </script>
 </body>
 

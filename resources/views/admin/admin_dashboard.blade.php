@@ -129,6 +129,10 @@
     <script src="{{ asset('backend/assets/js/pickr.js') }}"></script>
     <script src="{{ asset('backend/assets/js/flatpickr.js') }}"></script>
     <script src="{{ asset('backend/assets/js/tinymce.js') }}"></script>
+    {{-- add bootstrap  toggle github link  --}}
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+
 
     </script>
 </body>

@@ -107,6 +107,14 @@ class AdminController extends Controller
     public function AdminDashboard(){
         return view('admin.index');
     }
+
+    //changeStatus
+    public function changeStatus(Request $request){
+        $data = User::find($request->user_id);
+        $data->status = $request->status;
+        $data->save();
+        return response()->json(['success'=>'Status change successfully.']);
+    }
     //AdminProfile
     public function AdminProfile(){
         $id = Auth::user()->id;
