@@ -1,5 +1,15 @@
 <!-- partial:partials/_sidebar.html -->
+
+@php
+    $agent = Auth::user()->id;
+    $agent_id = App\Models\User::find($agent);
+    $status = $agent_id->status;
+@endphp
+
+
+
 <nav class="sidebar">
+    @if($status == 'active')
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
             Agent<span>Easy</span>
@@ -183,5 +193,15 @@
             </li>
         </ul>
     </div>
+    @else
+    <div class="sidebar-body">
+        <ul class="nav">
+            <li class="nav-item nav-category">Main</li>
+            <li class="nav-item">
+                <p class="text-center text-danger">Your Account Not Activated</p>
+            </li>
+        </ul>
+    </div>
+    @endif
 </nav>
 <!-- partial -->

@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     // UserIndex
     public function UserIndex(){
-        $users = User::latest()->paginate(20);
+        $users = User::where('role','agent')->get();
         return view('backend.agentuser.user_index',compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
     //UserStatusChange
@@ -26,6 +26,83 @@ class AdminController extends Controller
         );
         return redirect()->back()->with($notification);
         
+    }
+    //AddAgent
+    public function AddAgent(){
+        return view('backend.agentuser.add_agent');
+    }
+    //StoreAgent
+    public function StoreAgent(Request $request){
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            // 'username' => 'required',
+            'address' => 'required',
+            'photo' => 'required',
+        ]);
+        $data = new User();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        // $data->username = $request->username;
+        $data->address = $request->address;
+        $data->status = 'active';
+        $data->role = 'agent';
+        $data->password = Hash::make($request->password);
+        if($request->file('photo')){
+            $file = $request->file('photo');
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/agent_images'),$filename);
+            $data['photo'] = $filename;
+        }   
+        // dd($data);
+        $data->save();
+        $notification = array(
+            'message' => 'Agent Added Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('admin.user.index')->with($notification);
+    }
+    //EditAgent
+    public function EditAgent($id){
+        $agent = User::find($id);
+        return view('backend.agentuser.edit_agent',compact('agent'));
+    }
+    //UpdateAgent
+    public function UpdateAgent(Request $request, $id){
+        $data = User::find($id);
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->address = $request->address;
+        if($request->file('photo')){
+            $file = $request->file('photo');
+            @unlink(public_path('upload/agent_images/'.$data->photo));
+            $filename = date('YmdHi').$file->getClientOriginalName();
+            $file->move(public_path('upload/agent_images'),$filename);
+            $data['photo'] = $filename;
+        }
+        $data->save();
+        $notification = array(
+            'message' => 'Agent Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('admin.user.index')->with($notification);
+
+    }
+    //DeleteAgent
+    public function DeleteAgent($id){
+        $data = User::find($id);
+        @unlink(public_path('upload/agent_images/'.$data->photo));
+        $data->delete();
+        $notification = array(
+            'message' => 'Agent Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
     }
     public function AdminDashboard(){
         return view('admin.index');

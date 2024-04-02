@@ -42,6 +42,17 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/user/index',[AdminController::class,'UserIndex'] )->name('admin.user.index');
     // admin.user.status.change
     Route::post('/admin/user/status/change/{id}',[AdminController::class,'UserStatusChange'] )->name('admin.user.status.change');
+    //add.agent
+    Route::get('/admin/add/agent', [AdminController::class, 'AddAgent'])->name('add.agent');
+    //store.agent
+    Route::post('/admin/store/agent', [AdminController::class, 'StoreAgent'])->name('store.agent');
+    // edit.agent
+    Route::get('/admin/edit/agent/{id}', [AdminController::class, 'EditAgent'])->name('edit.agent'); 
+    // update.agent
+    Route::post('/admin/update/agent/{id}', [AdminController::class, 'UpdateAgent'])->name('update.agent');
+    // delete.agent
+    Route::get('/admin/delete/agent/{id}', [AdminController::class, 'DeleteAgent'])->name('agent.delete');
+
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     //admin.profile

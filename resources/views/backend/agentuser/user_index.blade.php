@@ -5,7 +5,7 @@
 
     <nav class="page-breadcrumb">
         <ol class="breadcrumb">
-            <a href="{{ route('admin.property.add') }}" class="btn btn-info">Add New Agent</a>
+            <a href="{{ route('add.agent') }}" class="btn btn-info">Add New Agent</a>
         </ol>
     </nav>
 
@@ -67,8 +67,8 @@
                                     <td>{{ $propertytype->last_login }}</td>
                                     <td>
                                         <a href="{{ route('admin.property.view', $propertytype->id) }}" class="btn btn-info"><i data-feather="eye"></i></a>
-                                        <a href="{{ route('admin.property.edit', $propertytype->id) }}" class="btn btn-info"><i data-feather="edit"></i></a>
-                                        <a href="{{ route('admin.property.delete', $propertytype->id) }}" class="btn btn-danger" id="delete"><i data-feather="trash-2"></i></a>
+                                        <a href="{{ route('edit.agent', $propertytype->id) }}" class="btn btn-info"><i data-feather="edit"></i></a>
+                                        <a href="{{ route('agent.delete', $propertytype->id) }}" class="btn btn-danger" id="delete"><i data-feather="trash-2"></i></a>
                                     </td>
                                     
                                     
